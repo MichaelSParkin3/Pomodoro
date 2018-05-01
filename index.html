@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <script src="jquery-3.3.1.min.js"></script>
+  	<script type="text/javascript" src="javascript.js"></script>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta charset="UTF-8">
+    <title>Pomodoro</title>
+  </head>
+  <body>
+
+  	<div class="container-fluid">
+
+  		<div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <h1 class="text-center title">Pomodoro</h1>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 time-col">
+        <h1 class="text-center time-type">Work</h1>
+        <h1 id="work-timer" class="text-center timer work-timer">0:10</h1>
+        <div class="btn-group" role="group" aria-label="Basic example">
+  <button id="work-minus" type="button" class="btn btn-secondary">-</button>
+  <button id="work-plus" type="button" class="btn btn-secondary">+</button>
+</div>
+</div>
+        <div class="col-md-4">
+          <div class="clock">
+            <div class="circle">
+              <img class="arrow" src="arrow.svg" alt="balloon" >
+              <img class="balloon" src="balloon.svg" alt="balloon" >
+              <div class="btn-group" role="group" aria-label="Basic example">
+        <button id="play" type="button" class="btn btn2 btn-secondary"><i class="fas fa-play"></i></button>
+        <button id="reset" type="button" class="btn btn2 btn-secondary"><i class="fas fa-history"></i></button>
+      </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 time-col">
+          <h1 class="text-center time-type">Play</h1>
+          <h1 id="play-timer" class="text-center timer play-timer">5:00</h1>
+          <div class="btn-group" role="group" aria-label="Basic example">
+    <button id="play-minus" type="button" class="btn btn-secondary">-</button>
+    <button id="play-plus" type="button" class="btn btn-secondary">+</button>
+  </div>
+        </div>
+      </div>
+
+  	</div>
+
+  </body>
+</html>
