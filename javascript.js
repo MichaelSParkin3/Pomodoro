@@ -2,6 +2,9 @@
 $( document ).ready(function() {
 
 var workInterval;
+var originalPlayTime;
+var originalWorkTime;
+var playMusicSilent = true;
 
 //if work time changing buttons are pressed adjust time accordingly
   $( "#work-plus" ).click(function() {
@@ -32,10 +35,45 @@ var workInterval;
 
 //if start button is pressed then start timer
 $( "#play" ).click(function() {
+  document.getElementById("work-plus").disabled = true;
+  document.getElementById("work-minus").disabled = true;
+  document.getElementById("play-plus").disabled = true;
+  document.getElementById("play-minus").disabled = true;
+  document.getElementById("play").disabled = true;
+
+  originalWorkTime = $( "#work-timer" ).text();
+  console.log("orign"+originalWorkTime);
+  originalPlayTime = $( "#play-timer" ).text();
+
+  var orignalWorkTimeArray = originalWorkTime.split(":");
+  if (orignalWorkTimeArray[0]=="0") {
+    var prop = "arrow "+orignalWorkTimeArray[1]+"s";
+  }else {
+    var prop = "arrow "+orignalWorkTimeArray[0]*60+"s";
+  }
+  console.log(prop);
+  $( "#arrow" ).addClass( "arrow-anim" );
+  $('.arrow-anim').css({"animation":prop});
+
+
     workInterval = setInterval(function(){
     var currentTime = $( "#work-timer" ).text();
+    //if work time is finished then start the play time
     if (currentTime == "0:00") {
+      if (playMusicSilent) {
+        playMusicSilent = false;
+        var audio = new Audio('pop.mp3');
+        audio.play();
+        $( "#balloon" ).addClass( "zoomOutUp" );
+        var audio = new Audio('flute.mp3');
+        audio.play();
+      }
       var currentTime = $( "#play-timer" ).text();
+      if (currentTime == "0:00") {
+        var audio = new Audio('flute.mp3');
+        audio.play();
+        clearInterval(workInterval);
+      }
       var newTime = SubtractOneSecFromTime(currentTime);
       $( "#play-timer" ).text(newTime);
     }else {
@@ -49,6 +87,25 @@ $( "#play" ).click(function() {
 $( "#reset" ).click(function() {
   console.log("RESET");
   clearInterval(workInterval);
+  playMusicSilent = true;
+  $( "#work-timer" ).text(originalWorkTime);
+  $( "#play-timer" ).text(originalPlayTime);
+  document.getElementById("play").disabled = false;
+  document.getElementById("work-plus").disabled = false;
+  document.getElementById("work-minus").disabled = false;
+  document.getElementById("play-plus").disabled = false;
+  document.getElementById("play-minus").disabled = false;
+  $( "#balloon" ).removeClass( "zoomOutUp" )
+  $('.arrow-anim').css({"animation":""});
+  $( "#arrow" ).removeClass( "arrow-anim" )
+  // restart animation
+  var elm = document.getElementById("#balloon");
+var newone = elm.cloneNode(true);
+elm.parentNode.replaceChild(newone, elm);
+// restart animation
+var elm = document.getElementById("#arrow");
+var newone = elm.cloneNode(true);
+elm.parentNode.replaceChild(newone, elm);
 });
 
 

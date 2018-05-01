@@ -1,6 +1,12 @@
 body {
     background-color: #323232;
 }
+h1{
+  font-family: 'Cinzel', serif;
+}
+.btn-group{
+  box-shadow: 5px 5px 30px black;
+}
 .circle{
 
 
@@ -21,11 +27,20 @@ body {
 	position: absolute;
 	width: 50%;
 	top: 25%;
-	right: 190%;
+	right: 200%;
+  animation-fill-mode: forwards;
+}
+.arrow-anim{
+
+}
+@-webkit-keyframes arrow {
+  0%   { right: 200%; }
+  100% { right: 50%; }
 }
 .title{
 	margin-top: 5vh;
 	color: #D46F6A;
+  text-shadow: 0 0 30px #D46F6A;
 }
 .timer{
 	font-size: 200px;
