@@ -1,0 +1,19 @@
+@media only screen and (max-width: 765px) {
+    .timer {
+        font-size: 150px;
+    }
+    .btn{
+      padding-left: 40px;
+    	padding-right: 40px;
+    }
+    .time-play-col{
+      margin-top: 20vh;
+    }
+    .arrow{
+      right: 98vw;
+    }
+    @-webkit-keyframes arrow {
+      0%   { right: 98vw; }
+      100% { right: 50vw; }
+    }
+}
